@@ -29,10 +29,8 @@ function Index() {
       <section className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16">
         <div>
           <p className="mb-3 inline-block rounded-full bg-sun px-4 py-1 font-extrabold">Explora. Aprende. Crea.</p>
-          <h1 className="text-4xl leading-tight md:text-6xl">¡El mundo digital está lleno de posibilidades!</h1>
-          <p className="mt-4 max-w-lg text-xl text-muted-foreground">
-            TecnoKids es un laboratorio creativo para aprender computación en clase con tarjetas, actividades y juegos. Un mundo de tecnología por descubrir.
-          </p>
+          <h1 className="text-4xl leading-tight md:text-6xl">TECNOKIDS</h1>
+          <p className="mt-4 max-w-lg text-xl text-muted-foreground">{"\n"}</p>
           <Link to="/descubre" className="btn btn-primary mt-8 px-7 py-4 text-lg">
             Comenzar a explorar <ArrowRight className="h-5 w-5" />
           </Link>
