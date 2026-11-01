@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DescubreRouteImport } from './routes/descubre'
+import { Route as DivierteteRouteImport } from './routes/diviertete'
+import { Route as ExperimentaRouteImport } from './routes/experimenta'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DescubreRoute = DescubreRouteImport.update({
+  id: '/descubre',
+  path: '/descubre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DivierteteRoute = DivierteteRouteImport.update({
+  id: '/diviertete',
+  path: '/diviertete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperimentaRoute = ExperimentaRouteImport.update({
+  id: '/experimenta',
+  path: '/experimenta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/descubre': typeof DescubreRoute
+  '/diviertete': typeof DivierteteRoute
+  '/experimenta': typeof ExperimentaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/descubre': typeof DescubreRoute
+  '/diviertete': typeof DivierteteRoute
+  '/experimenta': typeof ExperimentaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/descubre': typeof DescubreRoute
+  '/diviertete': typeof DivierteteRoute
+  '/experimenta': typeof ExperimentaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/descubre' | '/diviertete' | '/experimenta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/descubre' | '/diviertete' | '/experimenta'
+  id: '__root__' | '/' | '/descubre' | '/diviertete' | '/experimenta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DescubreRoute: typeof DescubreRoute
+  DivierteteRoute: typeof DivierteteRoute
+  ExperimentaRoute: typeof ExperimentaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/descubre': {
+      id: '/descubre'
+      path: '/descubre'
+      fullPath: '/descubre'
+      preLoaderRoute: typeof DescubreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diviertete': {
+      id: '/diviertete'
+      path: '/diviertete'
+      fullPath: '/diviertete'
+      preLoaderRoute: typeof DivierteteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experimenta': {
+      id: '/experimenta'
+      path: '/experimenta'
+      fullPath: '/experimenta'
+      preLoaderRoute: typeof ExperimentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DescubreRoute: DescubreRoute,
+  DivierteteRoute: DivierteteRoute,
+  ExperimentaRoute: ExperimentaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
