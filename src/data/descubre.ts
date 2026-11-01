@@ -1,5 +1,5 @@
 import {
-  Monitor, Keyboard, Mouse, Cpu, HardDrive, AppWindow, Printer, Code, Lock, ShieldCheck,
+  Monitor, Keyboard, Mouse, Cpu, HardDrive, AppWindow, Code, Lock, ShieldCheck,
   MessageCircleWarning, Globe, Mail, Cloud, Bot, type LucideIcon,
 } from "lucide-react";
 import type { Aged } from "@/lib/app-state";
@@ -95,4 +95,4 @@ export const toneClasses: Record<Tone, string> = {
   peach: "bg-peach-soft text-error",
   sun: "bg-sun-soft text-foreground",
 };
-export { Printer };
+
