@@ -1,93 +1,72 @@
 import {
-  Monitor, Keyboard, Mouse, Cpu, HardDrive, AppWindow, Code, Lock, ShieldCheck,
-  MessageCircleWarning, Globe, Mail, Cloud, Bot, type LucideIcon,
+  Monitor, Keyboard, Mouse, Cpu, AppWindow, FolderOpen, Trash2, Bold, Type, AlignCenter, Image,
+  Palette, Presentation, LayoutTemplate, Shapes, Film, Sparkles, Grid3x3, Rows3, Equal, Sigma,
+  BarChart3, Table, Filter, Copy, type LucideIcon,
 } from "lucide-react";
-import type { Aged } from "@/lib/app-state";
+import type { Leveled } from "@/lib/app-state";
 
 export type Tone = "lavender" | "mint" | "peach" | "sun";
-export type LearnCard = {
-  icon: LucideIcon;
-  title: string;
-  desc: Aged<string>;
-  explain: Aged<string>;
-  fact: Aged<string>;
-};
+export type LearnCard = { icon: LucideIcon; title: string; desc: string; explain: string; fact: string };
 export type Module = { id: string; title: string; tone: Tone; icon: LucideIcon; cards: LearnCard[] };
 
-export const MODULES: Module[] = [
-  {
-    id: "mod-computadora", title: "Conoce tu computadora", tone: "lavender", icon: Monitor,
+/** Un módulo de Descubre por cada edad del temario. */
+export const MODULES: Leveled<Module> = {
+  "6": {
+    id: "mod-windows", title: "Windows y partes de la computadora", tone: "lavender", icon: Monitor,
     cards: [
-      { icon: Monitor, title: "Monitor",
-        desc: { pequenos: "La pantalla donde vemos todo.", grandes: "Dispositivo de salida que muestra imágenes." },
-        explain: { pequenos: "El monitor nos muestra dibujos, letras y videos.", grandes: "El monitor es un dispositivo de salida: recibe información de la computadora y la convierte en imágenes formadas por millones de pequeños puntos llamados píxeles." },
-        fact: { pequenos: "La tele de tu casa se parece mucho a un monitor.", grandes: "Una pantalla Full HD tiene más de 2 millones de píxeles." } },
-      { icon: Keyboard, title: "Teclado",
-        desc: { pequenos: "Sirve para escribir letras y números.", grandes: "Dispositivo de entrada para escribir y dar órdenes." },
-        explain: { pequenos: "Cada tecla tiene una letra, un número o un dibujo. ¡Al presionarla aparece en la pantalla!", grandes: "El teclado es un dispositivo de entrada. Cada tecla envía una señal a la computadora. También tiene atajos, como Ctrl + C para copiar." },
-        fact: { pequenos: "La tecla más grande es la barra espaciadora.", grandes: "El orden QWERTY se inventó para las antiguas máquinas de escribir." } },
-      { icon: Mouse, title: "Ratón",
-        desc: { pequenos: "Mueve la flechita en la pantalla.", grandes: "Dispositivo apuntador de entrada." },
-        explain: { pequenos: "Cuando mueves el ratón, la flechita se mueve. Con un clic eliges cosas.", grandes: "El ratón detecta su movimiento con un sensor óptico y lo traduce al puntero. Tiene clic izquierdo, clic derecho y rueda para desplazarse." },
-        fact: { pequenos: "Se llama ratón porque su cable parece una colita.", grandes: "El primer ratón, de 1964, era de madera." } },
+      { icon: Monitor, title: "Monitor", desc: "La pantalla donde vemos todo.", explain: "En el monitor vemos el escritorio de Windows, las ventanas, los dibujos y las letras.", fact: "La tele de tu casa se parece mucho a un monitor." },
+      { icon: Cpu, title: "CPU", desc: "La caja que piensa.", explain: "El CPU es el cerebro de la computadora: ahí se guarda y se procesa todo lo que hacemos.", fact: "Cuando la computadora se enciende, el CPU empieza a trabajar." },
+      { icon: Keyboard, title: "Teclado", desc: "Sirve para escribir.", explain: "Cada tecla tiene una letra, un número o un símbolo. La barra espaciadora pone espacios y Enter baja de renglón.", fact: "La tecla más grande es la barra espaciadora." },
+      { icon: Mouse, title: "Mouse", desc: "Mueve la flechita.", explain: "Con un clic elegimos algo y con doble clic abrimos un programa o una carpeta.", fact: "El primer mouse era de madera." },
+      { icon: AppWindow, title: "Escritorio y ventanas", desc: "Donde empieza Windows.", explain: "El escritorio es la pantalla principal. Cada programa se abre en una ventana que podemos minimizar, maximizar o cerrar con la X.", fact: "Windows significa “ventanas” en inglés." },
+      { icon: FolderOpen, title: "Iconos", desc: "Dibujitos que abren cosas.", explain: "Los iconos representan programas, carpetas o archivos. La papelera de reciclaje guarda lo que borramos.", fact: "Puedes sacar algo de la papelera si lo borraste por error." },
     ],
   },
-  {
-    id: "mod-hwsw", title: "Hardware y software", tone: "mint", icon: Cpu,
+  "7": {
+    id: "mod-word", title: "Microsoft Word", tone: "mint", icon: Type,
     cards: [
-      { icon: HardDrive, title: "Hardware",
-        desc: { pequenos: "Las partes que puedes tocar.", grandes: "Componentes físicos de la computadora." },
-        explain: { pequenos: "El hardware son las piezas de la computadora: teclado, pantalla, ratón.", grandes: "El hardware es todo lo físico: procesador, memoria, disco duro, periféricos. Sin hardware el software no tendría dónde funcionar." },
-        fact: { pequenos: "¡Si lo puedes tocar, es hardware!", grandes: "El procesador (CPU) puede hacer miles de millones de operaciones por segundo." } },
-      { icon: AppWindow, title: "Software",
-        desc: { pequenos: "Los programas y juegos de la computadora.", grandes: "Programas e instrucciones que usa la computadora." },
-        explain: { pequenos: "El software son los programas: juegos, dibujo, música. No se pueden tocar.", grandes: "El software es el conjunto de instrucciones que le dicen al hardware qué hacer. Incluye el sistema operativo y las aplicaciones." },
-        fact: { pequenos: "Un juego en la tableta es software.", grandes: "Windows, Android y macOS son sistemas operativos." } },
-      { icon: Code, title: "Programas",
-        desc: { pequenos: "Instrucciones paso a paso.", grandes: "Código escrito por programadores." },
-        explain: { pequenos: "Un programa es como una receta: pasos en orden para que la computadora haga algo.", grandes: "Los programas se escriben en lenguajes de programación como Python o Scratch, usando secuencias, condiciones y ciclos." },
-        fact: { pequenos: "Las personas que crean programas se llaman programadores.", grandes: "Scratch fue creado para que niños y niñas aprendan a programar con bloques." } },
+      { icon: Type, title: "Escribir en Word", desc: "Una hoja para escribir.", explain: "Word es un programa para escribir cuentos, tareas y cartas. La rayita que parpadea indica dónde aparecerá la letra.", fact: "Con Enter empiezas un nuevo renglón." },
+      { icon: Type, title: "Fuente y tamaño", desc: "Cambia cómo se ven las letras.", explain: "La fuente es el tipo de letra (como Arial o Comic Sans). El tamaño hace las letras más grandes o más pequeñas.", fact: "Los títulos se ven mejor con letras más grandes." },
+      { icon: Bold, title: "Negrita, cursiva y subrayado", desc: "Resalta palabras.", explain: "N pone las letras gruesas, K las inclina y S les pone una línea debajo.", fact: "Primero seleccionas la palabra y luego eliges el botón." },
+      { icon: Palette, title: "Colores", desc: "Letras de colores.", explain: "Con el botón de color de fuente puedes pintar las letras del color que quieras.", fact: "Usa colores que se puedan leer bien sobre la hoja blanca." },
+      { icon: AlignCenter, title: "Alineación", desc: "Acomoda el texto.", explain: "Puedes alinear el texto a la izquierda, al centro, a la derecha o justificado.", fact: "Los títulos casi siempre van centrados." },
+      { icon: Image, title: "Imágenes", desc: "Agrega dibujos.", explain: "En la pestaña Insertar eliges Imágenes para poner una foto o dibujo en tu documento.", fact: "Puedes hacer la imagen más grande jalando sus esquinas." },
     ],
   },
-  {
-    id: "mod-internet", title: "Internet seguro", tone: "peach", icon: ShieldCheck,
+  "8": {
+    id: "mod-powerpoint", title: "Microsoft PowerPoint", tone: "peach", icon: Presentation,
     cards: [
-      { icon: Lock, title: "Contraseñas",
-        desc: { pequenos: "Una llave secreta.", grandes: "Protegen tus cuentas." },
-        explain: { pequenos: "La contraseña es secreta. Solo la saben tú y tu familia.", grandes: "Una contraseña segura es larga y mezcla letras, números y símbolos. Nunca la compartas con amigos ni la escribas en lugares visibles." },
-        fact: { pequenos: "Tu nombre no es una buena contraseña.", grandes: "“123456” es una de las contraseñas más usadas… y más fáciles de adivinar." } },
-      { icon: MessageCircleWarning, title: "Desconocidos",
-        desc: { pequenos: "No hables con extraños en línea.", grandes: "Cuidado con quién te contacta." },
-        explain: { pequenos: "Si alguien que no conoces te escribe, avisa a un adulto.", grandes: "En Internet las personas pueden fingir ser otras. No compartas datos personales como dirección, escuela o fotos, y cuéntale a un adulto de confianza." },
-        fact: { pequenos: "Pedir ayuda a un adulto siempre es buena idea.", grandes: "Tus datos personales son como tu casa: no se los das a cualquiera." } },
-      { icon: ShieldCheck, title: "Enlaces y descargas",
-        desc: { pequenos: "Pregunta antes de hacer clic.", grandes: "No todo lo que brilla es seguro." },
-        explain: { pequenos: "Si aparece un premio o un botón raro, no lo toques y pregunta.", grandes: "Los mensajes de “¡Ganaste!” suelen ser engaños (phishing). Descarga solo de sitios oficiales y con permiso." },
-        fact: { pequenos: "Los premios sorpresa en Internet casi siempre son trampas.", grandes: "El candado junto a la dirección web indica una conexión cifrada (https)." } },
+      { icon: Presentation, title: "Diapositivas", desc: "Las hojas de una presentación.", explain: "PowerPoint sirve para crear presentaciones. Cada hoja se llama diapositiva y puedes agregar todas las que necesites.", fact: "Con Nueva diapositiva agregas una hoja más." },
+      { icon: LayoutTemplate, title: "Diseños", desc: "Colores y fondos listos.", explain: "En la pestaña Diseño eliges un tema para que todas las diapositivas tengan los mismos colores y letras.", fact: "Un mismo diseño hace que tu presentación se vea ordenada." },
+      { icon: Image, title: "Imágenes", desc: "Ilustra tus ideas.", explain: "Desde Insertar agregas imágenes que ayudan a explicar el tema.", fact: "Una buena imagen explica más que muchas palabras." },
+      { icon: Shapes, title: "Formas", desc: "Círculos, flechas y estrellas.", explain: "En Insertar > Formas puedes dibujar figuras y escribir dentro de ellas.", fact: "Las flechas sirven para mostrar un orden o un camino." },
+      { icon: Film, title: "Transiciones", desc: "Efecto entre diapositivas.", explain: "La transición es el efecto que aparece al pasar de una diapositiva a la siguiente.", fact: "Usar pocas transiciones hace la presentación más clara." },
+      { icon: Sparkles, title: "Animaciones", desc: "Objetos que se mueven.", explain: "La animación hace que un texto o imagen aparezca, se mueva o desaparezca dentro de una diapositiva.", fact: "Con F5 empiezas a presentar en pantalla completa." },
     ],
   },
-  {
-    id: "mod-digital", title: "Mundo digital", tone: "sun", icon: Globe,
+  "9-10": {
+    id: "mod-excel", title: "Microsoft Excel", tone: "sun", icon: Grid3x3,
     cards: [
-      { icon: Globe, title: "Internet",
-        desc: { pequenos: "Une computadoras de todo el mundo.", grandes: "Red mundial de computadoras." },
-        explain: { pequenos: "Internet conecta computadoras para ver videos, buscar y aprender.", grandes: "Internet es una red de redes: millones de computadoras conectadas que intercambian información en paquetes de datos." },
-        fact: { pequenos: "¡Puedes ver fotos de otros países gracias a Internet!", grandes: "Cables submarinos cruzan los océanos para conectar continentes." } },
-      { icon: Mail, title: "Correo electrónico",
-        desc: { pequenos: "Cartas que viajan por Internet.", grandes: "Mensajes digitales con dirección." },
-        explain: { pequenos: "Es como una carta, pero llega en segundos.", grandes: "Cada correo tiene una dirección con @, por ejemplo nombre@escuela.mx. Puede llevar textos, imágenes y archivos adjuntos." },
-        fact: { pequenos: "El símbolo @ se llama arroba.", grandes: "El primer correo electrónico se envió en 1971." } },
-      { icon: Cloud, title: "La nube",
-        desc: { pequenos: "Guardar cosas en Internet.", grandes: "Almacenamiento en servidores remotos." },
-        explain: { pequenos: "La nube guarda fotos y trabajos para verlos desde otro lugar.", grandes: "“La nube” son servidores en centros de datos donde se guardan archivos a los que accedes desde cualquier dispositivo." },
-        fact: { pequenos: "¡La nube no está en el cielo!", grandes: "Los centros de datos necesitan sistemas especiales para enfriar sus computadoras." } },
-      { icon: Bot, title: "Robots",
-        desc: { pequenos: "Máquinas que siguen órdenes.", grandes: "Máquinas programadas con sensores." },
-        explain: { pequenos: "Los robots hacen tareas porque alguien los programó.", grandes: "Un robot combina sensores (para percibir), un programa (para decidir) y motores (para actuar)." },
-        fact: { pequenos: "Hay robots que aspiran el piso.", grandes: "Hay robots explorando Marte ahora mismo." } },
+      { icon: Rows3, title: "Filas y columnas", desc: "La cuadrícula de Excel.", explain: "Las columnas van de arriba abajo y se nombran con letras (A, B, C). Las filas van de lado y se nombran con números (1, 2, 3).", fact: "Una hoja de Excel tiene más de un millón de filas." },
+      { icon: Grid3x3, title: "Celdas", desc: "Donde van los datos.", explain: "La celda es el cruce de una columna y una fila. Su nombre combina ambas: B3 es la columna B, fila 3.", fact: "La celda seleccionada tiene un borde verde." },
+      { icon: Table, title: "Datos y tablas", desc: "Información ordenada.", explain: "En las celdas escribimos textos, números y fechas. Dar formato como tabla ayuda a ordenar y filtrar.", fact: "Un encabezado claro en cada columna facilita leer la tabla." },
+      { icon: Equal, title: "Operaciones", desc: "Excel calcula por ti.", explain: "Toda operación empieza con =. Por ejemplo =A1+A2 suma, =A1-A2 resta, =A1*A2 multiplica y =A1/A2 divide.", fact: "Si cambias un número, el resultado se actualiza solo." },
+      { icon: Sigma, title: "Fórmulas y funciones", desc: "Atajos para calcular.", explain: "=SUMA(A1:A5) suma un rango y =PROMEDIO(A1:A5) calcula el promedio. El botón Autosuma (Σ) lo hace rápido.", fact: "Los dos puntos (:) significan “desde … hasta …”." },
+      { icon: BarChart3, title: "Gráficas", desc: "Datos en dibujo.", explain: "Seleccionas los datos y en Insertar eliges una gráfica de columnas, barras, líneas o circular.", fact: "La gráfica circular sirve para mostrar partes de un total." },
     ],
   },
-];
+  "11-12": {
+    id: "mod-integra", title: "Integración: Windows, Word, PowerPoint y Excel", tone: "lavender", icon: Copy,
+    cards: [
+      { icon: FolderOpen, title: "Windows avanzado", desc: "Organiza y trabaja rápido.", explain: "Con el Explorador de archivos creas carpetas, renombras y mueves archivos. Alt + Tab cambia de ventana y Win + flecha acomoda ventanas lado a lado.", fact: "Ctrl + Z deshace casi cualquier acción en Windows y en Office." },
+      { icon: Type, title: "Word profesional", desc: "Documentos bien presentados.", explain: "Los Estilos dan el mismo formato a todos los títulos y permiten crear una tabla de contenido automática. También puedes ajustar márgenes, interlineado y sangría.", fact: "Combinar correspondencia une Word con una lista de Excel para crear cartas personalizadas." },
+      { icon: Presentation, title: "PowerPoint para exponer", desc: "Presentaciones efectivas.", explain: "El Patrón de diapositivas cambia el diseño de todas a la vez. La vista Moderador muestra tus notas mientras el grupo ve la diapositiva.", fact: "La regla 6×6: no más de 6 líneas con 6 palabras cada una." },
+      { icon: Sigma, title: "Excel avanzado", desc: "Funciones y referencias.", explain: "=MAX, =MIN, =CONTAR.SI y =SI resuelven problemas reales. Con $ fijas una celda: $C$1 no cambia al copiar la fórmula.", fact: "=SI(B2>=6,\"Aprobado\",\"Reforzar\") decide por ti." },
+      { icon: Filter, title: "Analizar datos", desc: "Ordena, filtra y grafica.", explain: "Los filtros muestran solo lo que te interesa y el formato condicional colorea los datos según su valor.", fact: "Una buena gráfica necesita título y ejes con nombre." },
+      { icon: Trash2, title: "Proyecto integrador", desc: "Todo junto.", explain: "Ejemplo: guarda una encuesta en una carpeta (Windows), calcula resultados (Excel), escribe el informe (Word) y exponlo con gráficas pegadas (PowerPoint).", fact: "Copiar una gráfica de Excel y pegarla en PowerPoint mantiene los datos vinculados." },
+    ],
+  },
+};
 
 export const toneClasses: Record<Tone, string> = {
   lavender: "bg-lavender-soft text-primary",
@@ -95,4 +74,3 @@ export const toneClasses: Record<Tone, string> = {
   peach: "bg-peach-soft text-error",
   sun: "bg-sun-soft text-foreground",
 };
-

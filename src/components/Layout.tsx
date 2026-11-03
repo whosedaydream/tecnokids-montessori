@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, Volume2, VolumeX } from "lucide-react";
-import { useApp } from "@/lib/app-state";
+import { LEVELS, useApp } from "@/lib/app-state";
 
 const NAV = [
   { to: "/", label: "Inicio" },
@@ -31,6 +31,39 @@ export function AgeToggle({ large = false }: { large?: boolean }) {
           {o.l} <span className="opacity-75">{o.s}</span>
         </button>
       ))}
+    </div>
+  );
+}
+
+/** Edad dentro del grupo seleccionado: define el temario específico. */
+export function LevelToggle() {
+  const { age, level, setLevel } = useApp();
+  return (
+    <div role="radiogroup" aria-label="Edad y tema" className="flex flex-wrap gap-2">
+      {LEVELS.filter((l) => l.age === age).map((l) => (
+        <button
+          key={l.id}
+          role="radio"
+          aria-checked={level === l.id}
+          onClick={() => setLevel(l.id)}
+          className={`rounded-2xl px-4 py-2 text-left font-extrabold transition-colors ${
+            level === l.id ? "bg-primary text-primary-foreground" : "bg-card text-foreground shadow-sm hover:bg-lavender-soft"
+          }`}
+        >
+          <span className="block text-sm opacity-80">{l.years}</span>
+          {l.topic}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** Selector completo para encabezados de sección: grupo + edad. */
+export function CurriculumPicker() {
+  return (
+    <div className="flex flex-col items-start gap-3 md:items-end">
+      <AgeToggle large />
+      <LevelToggle />
     </div>
   );
 }
