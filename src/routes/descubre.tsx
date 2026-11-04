@@ -29,7 +29,7 @@ function Descubre() {
 
   return (
     <>
-      <PageHeader title="Descubre" subtitle="Elige un módulo y pulsa cada tarjeta para descubrir su explicación.">
+      <PageHeader title="Descubre" subtitle="Elige el grupo y la edad, y pulsa cada tarjeta para descubrir su explicación.">
         <CurriculumPicker />
       </PageHeader>
       <div className="mx-auto max-w-7xl px-4">
