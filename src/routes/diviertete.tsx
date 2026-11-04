@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Grid3x3, HelpCircle } from "lucide-react";
 import { ADIVINA, MEMORIA } from "@/data/juegos";
 import { useApp } from "@/lib/app-state";
-import { AgeToggle, PageHeader } from "@/components/Layout";
+import { CurriculumPicker, PageHeader } from "@/components/Layout";
 import { Picker } from "@/components/GameStage";
 import { QuizEngine } from "@/components/QuizEngine";
 import { MemoryGame } from "@/components/MemoryGame";
@@ -23,12 +23,12 @@ export const Route = createFileRoute("/diviertete")({
 type GameId = "memoria" | "adivina";
 
 function Diviertete() {
-  const { age } = useApp();
+  const { level } = useApp();
   const [game, setGame] = useState<GameId>("memoria");
   return (
     <>
       <PageHeader title="Diviértete" subtitle="Juegos para proyectar y jugar todos juntos.">
-        <AgeToggle large />
+        <CurriculumPicker />
       </PageHeader>
       <div className="mx-auto max-w-7xl px-4">
         <Picker<GameId>
@@ -40,9 +40,9 @@ function Diviertete() {
           onChange={setGame}
         />
         {game === "memoria" ? (
-          <MemoryGame key={age} title="Memoria tecnológica" pairs={MEMORIA[age]} activityId="game-memoria" />
+          <MemoryGame key={level} title="Memoria tecnológica" pairs={MEMORIA[level]} activityId="game-memoria" />
         ) : (
-          <QuizEngine key={age} title="Adivina qué soy" activityId="game-adivina" questions={ADIVINA[age]}
+          <QuizEngine key={level} title="Adivina qué soy" activityId="game-adivina" questions={ADIVINA[level]}
             instructions="Lean las pistas. El grupo elige una respuesta y la docente la selecciona." />
         )}
       </div>

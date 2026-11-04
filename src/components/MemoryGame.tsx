@@ -10,7 +10,7 @@ function shuffle(pairs: Pair[]): Card[] {
   const cards = pairs.flatMap((p) => [{ ...p, key: p.id + "-a" }, { ...p, key: p.id + "-b" }]);
   for (let i = cards.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
+    [cards[i], cards[j]] = [cards[j]!, cards[i]!];
   }
   return cards;
 }
@@ -39,7 +39,8 @@ export function MemoryGame({ title, pairs, activityId }: { title: string; pairs:
     const nextOpen = [...open, c.key];
     setOpen(nextOpen);
     if (nextOpen.length === 2) {
-      const [a, b] = nextOpen.map((k) => cards.find((x) => x.key === k)!);
+      const a = cards.find((x) => x.key === nextOpen[0])!;
+      const b = cards.find((x) => x.key === nextOpen[1])!;
       if (a.id === b.id) {
         const m = [...matched, a.id];
         setMatched(m);

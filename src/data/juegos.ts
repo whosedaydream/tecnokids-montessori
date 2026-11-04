@@ -10,7 +10,7 @@ export type Option = { label: string; icon?: LucideIcon };
 export type Question = { prompt: string; icon?: LucideIcon; options: Option[]; answer: number; explain: string };
 export type Pair = { id: string; label: string; icon: LucideIcon };
 
-const o = (label: string, icon?: LucideIcon): Option => ({ label, icon });
+const o = (label: string, icon?: LucideIcon): Option => (icon ? { label, icon } : { label });
 
 /** Encuentra la herramienta. */
 export const ARMA: Leveled<Question[]> = {

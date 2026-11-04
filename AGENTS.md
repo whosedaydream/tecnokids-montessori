@@ -10,6 +10,6 @@
 <!-- LOVABLE:END -->
 
 ## Architecture
-- Educational content lives in `src/data/*` with `Aged<T>` (pequenos/grandes) variants; components only render it — keeps content editable without touching logic.
+- Educational content lives in `src/data/*` keyed by curriculum level (`Leveled<T>`: 6, 7, 8, 9-10, 11-12; group derives from level); components only render it — keeps content editable without touching logic.
 - All quizzes/activities use `QuizEngine`, all memory games use `MemoryGame`; new games of the same type must reuse these engines with new data.
 - Age, sound and progress state live in `src/lib/app-state.tsx` and persist only in localStorage — no auth, accounts or database by spec.
