@@ -4,7 +4,7 @@ Los alumnos más pequeños requieren apoyos visuales y actividades sencillas par
 Utilizando Lovable, una IA vista durante el taller de vibecoding, construí la página web a partir de instrucciones y propuestas de diseño. ChatGPT se empleó como herramienta de apoyo para organizar ideas, proponer actividades, estructurar contenidos y resolver dudas durante el proceso. La experiencia permitió materializar una versión de la plataforma, que actualmente contempla dos grupos de edad: de 6 a 8 años y de 9 a 12 años, donde se dividen los grados que doy y las materias que vemos.
 La versión inicial incluye cuestionarios y memoramas. La elección de estos últimos responde a la observación de que los estudiantes de menor edad muestran interés por actividades de asociación y memoria. Me gustaría buscar más adelante lograr ampliar progresivamente estas funciones y darles una organización pedagógica más completa.
 
-
+________________________________________________________________________________________________________________________
 Este documento establece la visión, identidad, funcionalidades y arquitectura que debe tener TECNOKIDS.
  1. ROL
 
