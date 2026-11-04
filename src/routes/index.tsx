@@ -19,11 +19,11 @@ const ACCESS = [
   { to: "/descubre", title: "Descubre", text: "Tarjetas para conocer la computadora e Internet.", icon: BookOpen, bg: "bg-lavender-soft" },
   { to: "/experimenta", title: "Experimenta", text: "Actividades para identificar, clasificar y decidir.", icon: FlaskConical, bg: "bg-mint-soft" },
   { to: "/diviertete", title: "Diviértete", text: "Juegos de memoria y adivinanzas en grupo.", icon: Gamepad2, bg: "bg-peach-soft" },
-  { to: "/experimenta", title: "Crea", text: "Arma tu computadora pieza por pieza.", icon: Puzzle, bg: "bg-sun-soft" },
+  { to: "/experimenta", title: "Crea", text: "Encuentra la herramienta correcta en cada programa.", icon: Puzzle, bg: "bg-sun-soft" },
 ] as const;
 
 function Index() {
-  const { age, done, percent, resetProgress } = useApp();
+  const { done, percent, resetProgress } = useApp();
   return (
     <>
       <section className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16">
@@ -52,11 +52,9 @@ function Index() {
       <section className="mx-auto mt-12 grid max-w-7xl gap-5 px-4 lg:grid-cols-5">
         <div className="card-soft flex flex-col gap-4 bg-sun-soft p-8 lg:col-span-3">
           <span className="inline-flex items-center gap-2 font-extrabold"><Lightbulb className="h-5 w-5" /> Reto destacado</span>
-          <h2 className="text-3xl">Detectives digitales</h2>
+          <h2 className="text-3xl">Reto práctico</h2>
           <p className="text-lg">
-            {age === "pequenos"
-              ? "¿Sabes qué hacer si aparece un premio sorpresa en la pantalla? ¡Descúbranlo en grupo!"
-              : "Analicen situaciones reales de Internet y decidan cuáles son buenas prácticas digitales."}
+            {"Resuelvan en grupo situaciones reales de Windows, Word, PowerPoint o Excel según su edad."}
           </p>
           <Link to="/experimenta" search={{ a: "detectives" }} className="btn btn-primary self-start">Aceptar el reto <ArrowRight className="h-5 w-5" /></Link>
         </div>
