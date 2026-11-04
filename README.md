@@ -35,12 +35,65 @@ La plataforma contempla dos grupos principales:
 
 ## ✨ Funcionalidades de la versión inicial
 
-La primera versión de TECNOKIDS contempla recursos y actividades educativas como:
+La primera versión de TECNOKIDS contempla:
 
-- **Cuestionarios:** preguntas para reforzar y comprobar conocimientos de computación.
-- **Memoramas tecnológicos:** juegos de asociación y memoria mediante elementos e imágenes relacionados con la computadora.
-- **Contenido visual:** recursos gráficos que facilitan la comprensión de conceptos.
-- **Organización por edades:** contenidos diferenciales.
+Cuestionarios interactivos: preguntas para reforzar los conocimientos de computación.
+
+Memorama tecnológico: juegos de asociación y memoria mediante elementos relacionados con la computadora.
+
+Organización por grupos de edad: contenidos diferenciados para pequeños y grandes.
+
+Recursos visuales: ilustraciones y elementos gráficos que facilitan la comprensión de los temas.
+
+La plataforma está pensada principalmente para utilizarse desde la computadora de la docente y proyectarse frente al grupo, permitiendo que los alumnos participen de manera oral o por turnos.
+
+## 🛠️ Herramientas utilizadas
+
+Lovable: herramienta de inteligencia artificial utilizada para construir la plataforma web a partir de instrucciones, propuestas y ajustes de diseño.
+
+ChatGPT: herramienta de apoyo para organizar ideas, estructurar contenidos educativos, proponer actividades y resolver dudas durante el desarrollo.
+
+Vibecoding: metodología de desarrollo explorada durante el taller, mediante la cual se construyó la aplicación utilizando instrucciones en lenguaje natural y herramientas de inteligencia artificial.
+
+## 🎨 Diseño y enfoque visual
+
+TECNOKIDS utiliza una identidad visual amigable, colorida y educativa, con elementos gráficos relacionados con el mundo de la tecnología.
+
+Se busca ofrecer una interfaz:
+
+Intuitiva y fácil de utilizar.
+
+Visualmente atractiva para niños.
+
+Con instrucciones claras y sencillas.
+
+Adaptada a diferentes edades.
+
+Con actividades que promuevan la curiosidad y la participación.
+
+## 🚀 Desarrollo futuro
+
+TECNOKIDS representa una primera versión del proyecto, por lo que se contempla ampliar progresivamente sus funcionalidades y contenidos.
+
+Entre las mejoras que me gustaría desarrollar se encuentran:
+
+Incorporar nuevas actividades y juegos educativos.
+
+Ampliar los cuestionarios y retos tecnológicos.
+
+Organizar los contenidos mediante una estructura pedagógica más completa.
+
+Desarrollar actividades prácticas relacionadas con Windows, Word, PowerPoint y Excel.
+
+Mejorar la experiencia de navegación y la interacción con los recursos educativos.
+
+##💡 Motivación personal
+
+Este proyecto representa la oportunidad de combinar mi experiencia como docente con el uso de nuevas herramientas tecnológicas.
+
+TECNOKIDS nace de la intención de transformar algunas de las actividades que realizo en el aula en recursos digitales que despierten la curiosidad de los alumnos y hagan del aprendizaje de la computación una experiencia más dinámica.
+
+También representa mi acercamiento al desarrollo web mediante herramientas de inteligencia artificial y la metodología de vibecoding, explorando nuevas posibilidades para crear soluciones digitales a partir de necesidades reales.
 __________________________________________________________________________________________________
 
 This project was built with [Lovable](https://lovable.dev).
