@@ -16,7 +16,7 @@ export function QuizEngine({ title, instructions, questions, activityId }: Props
   const [picked, setPicked] = useState<Record<number, number | "reveal">>({});
   const [finished, setFinished] = useState(false);
 
-  const q = questions[idx];
+  const q = questions[idx]!;
   const state = picked[idx];
   const answered = state !== undefined;
 
@@ -95,7 +95,7 @@ export function QuizEngine({ title, instructions, questions, activityId }: Props
       {answered && (
         <div className={`pop-in mt-6 rounded-3xl p-5 text-xl ${state === "reveal" ? "bg-sun-soft" : correct ? "bg-success-soft" : "bg-error-soft"}`}>
           <p className="font-black">
-            {state === "reveal" ? "Respuesta correcta: " + q.options[q.answer].label : correct ? "¡Correcto! ¡Muy bien!" : "¡Casi! Revisemos juntos."}
+            {state === "reveal" ? "Respuesta correcta: " + q.options[q.answer]?.label : correct ? "¡Correcto! ¡Muy bien!" : "¡Casi! Revisemos juntos."}
           </p>
           <p className="mt-1">{q.explain}</p>
         </div>

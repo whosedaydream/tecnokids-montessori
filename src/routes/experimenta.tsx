@@ -18,7 +18,7 @@ type ActId = (typeof ACTS)[number]["id"];
 
 export const Route = createFileRoute("/experimenta")({
   validateSearch: (s: Record<string, unknown>): { a?: ActId } =>
-    ACTS.some((x) => x.id === s.a) ? { a: s.a as ActId } : {},
+    ACTS.some((x) => x.id === s["a"]) ? { a: s["a"] as ActId } : {},
   head: () => ({
     meta: [
       { title: "Experimenta — Actividades educativas | TecnoKids" },
