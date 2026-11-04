@@ -1,543 +1,195 @@
 # TecnoKids Learning Lab
+TECNOKIDS es una plataforma web educativa interactiva, surge a partir de la experiencia de trabajo en el aula, soy profesora de primaria, y de la observación de las formas en que los niños se relacionan con los contenidos de computación. Identifiqué que las actividades dinámicas, especialmente aquellas que incorporan imágenes, adivinanzas, retos y juegos de memoria, favorecen el interés y la participación de los alumnos.
+Los alumnos más pequeños requieren apoyos visuales y actividades sencillas para reconocer elementos de la computadora, mientras que los estudiantes mayores pueden abordar contenidos y retos de mayor complejidad.
+Utilizando Lovable, una IA vista durante el taller de vibecoding, construí la página web a partir de instrucciones y propuestas de diseño. ChatGPT se empleó como herramienta de apoyo para organizar ideas, proponer actividades, estructurar contenidos y resolver dudas durante el proceso. La experiencia permitió materializar una versión de la plataforma, que actualmente contempla dos grupos de edad: de 6 a 8 años y de 9 a 12 años, donde se dividen los grados que doy y las materias que vemos.
+La versión inicial incluye cuestionarios y memoramas. La elección de estos últimos responde a la observación de que los estudiantes de menor edad muestran interés por actividades de asociación y memoria. Me gustaría buscar más adelante lograr ampliar progresivamente estas funciones y darles una organización pedagógica más completa.
+
 
 Este documento establece la visión, identidad, funcionalidades y arquitectura que debe tener TECNOKIDS.
+ 1. ROL
 
-Estoy comenzando a trabajar en este proyecto desde una cuenta nueva de Lovable. Por lo tanto, considera este documento como la especificación principal para construir la aplicación.
+Actúa como un equipo profesional de desarrollo web especializado en **React, TypeScript, Tailwind CSS y diseño UX/UI**, con experiencia en la creación de plataformas educativas interactivas para niños.
 
-IMPORTANTE:
+Asume los siguientes perfiles:
+- Desarrollador frontend experto en React, TypeScript y Tailwind CSS.
+- Diseñador UX/UI especializado en interfaces educativas infantiles.
+- Especialista en diseño responsive y accesibilidad.
+- Desarrollador de actividades y juegos educativos interactivos.
 
-No asumas que existen componentes o funcionalidades previamente implementados.
+Tu responsabilidad es desarrollar y mantener TECNOKIDS, garantizando una experiencia visual atractiva, intuitiva, funcional y coherente.
 
-No inventes que ya existen páginas, rutas o elementos.
+2. TAREA
 
-No realices modificaciones fuera de lo descrito.
+Construir y mantener una aplicación web educativa llamada **TECNOKIDS**, con el eslogan "Explora. Aprende. Crea.".
 
-No agregues funcionalidades que no estén contempladas.
+La plataforma debe permitir que los niños aprendan conceptos básicos de computación mediante contenido visual, tarjetas educativas, actividades prácticas y juegos interactivos.
 
-Respeta todas las decisiones de diseño y funcionamiento establecidas.
+Desarrollar las siguientes secciones principales:
 
-Primero analiza esta especificación y organiza internamente el desarrollo por etapas.
+- **Inicio:** página de bienvenida, accesos a las secciones y reto destacado.
+- **Descubre:** biblioteca de aprendizaje con módulos de computación, hardware, software, seguridad en Internet y mundo digital.
+- **Experimenta:** actividades educativas interactivas como Arma tu computadora, Hardware o software y Detectives digitales.
+- **Diviértete:** juegos educativos como Memoria tecnológica y Adivina qué soy.
 
-Comienza construyendo la primera versión funcional de TECNOKIDS, respetando la estructura, identidad visual y funcionalidades descritas.
+Implementar también:
+- Selector de edades.
+- Adaptación del contenido según el grupo seleccionado.
+- Indicador general de progreso.
+- Control de sonidos.
+- Animaciones suaves.
+- Diseño adaptable a computadoras, tabletas y celulares.
 
-Optimiza la implementación para evitar código duplicado, componentes innecesarios y consumo excesivo de créditos.
-Actúa como un equipo profesional de desarrollo web especializado en UX/UI, diseño de interfaces educativas infantiles y desarrollo frontend.
+Todas las secciones deben tener contenido real y elementos interactivos funcionales.
 
-Tu responsabilidad es desarrollar y mantener una aplicación web llamada TECNOKIDS, respetando la identidad, estructura, funcionalidades y decisiones descritas en este documento.
+3. CONTEXTO
 
-Este documento representa la visión general del proyecto y debe servir como referencia para todas las modificaciones futuras.
-1. IDENTIDAD DEL PROYECTO
+TECNOKIDS es una plataforma educativa dirigida a niños de **6 a 12 años**, divididos en dos grupos:
 
-Nombre: TecnoKids
+- Pequeños: 6 a 8 años.
+- Grandes: 9 a 12 años.
 
-Eslogan: Explora. Aprende. Crea.
+El contenido debe adaptarse a las capacidades de cada grupo, utilizando instrucciones sencillas, ilustraciones y ejemplos cotidianos para los pequeños, y explicaciones más completas y retos de razonamiento para los grandes.
 
-Descripción: Un mundo de tecnología por descubrir.
+La plataforma será utilizada principalmente por una docente desde su computadora y proyectada frente a sus alumnos.
 
-Objetivo: Crear una plataforma educativa interactiva para niños de 6 a 12 años, donde puedan aprender conceptos de computación mediante tarjetas educativas, actividades y juegos.
+Los estudiantes participarán oralmente, levantando la mano o por turnos. No necesitan dispositivos individuales ni cuentas personales.
 
-La plataforma será utilizada principalmente por una docente que administra las actividades desde su computadora y las proyecta frente a sus alumnos.
+Identidad visual
 
-Los alumnos participan desde sus asientos, respondiendo oralmente o levantando la mano. No necesitan dispositivos individuales.
-
-TECNOKIDS debe conservar su carácter de plataforma educativa completa. No debe convertirse únicamente en un catálogo de juegos.
-
-2. PÚBLICO OBJETIVO
-
-Dividir el contenido en dos grupos:
-
-Pequeños: 6 a 8 años.
-
-Grandes: 9 a 12 años.
-
-El contenido debe adaptarse al grupo seleccionado.
-
-Pequeños:
-
-Instrucciones cortas.
-
-Vocabulario sencillo.
-
-Actividades visuales.
-
-Ejemplos cotidianos.
-
-Menor cantidad de información por pantalla.
-
-Grandes:
-
-Explicaciones más completas.
-
-Conceptos técnicos básicos.
-
-Preguntas de mayor dificultad.
-
-Retos que requieran razonamiento.
-
-El selector de edad debe permitir cambiar entre ambos grupos y actualizar los contenidos correspondientes.3. IDENTIDAD VISUAL
-
-Estética: Laboratorio creativo.
-
-Personalidad: Moderna, curiosa, amigable, divertida y educativa.
-
-Evitar una apariencia excesivamente infantil.
-
-No utilizar mascotas ni personajes como identidad de marca.
+- Estética: laboratorio creativo.
+- Personalidad: moderna, curiosa, amigable, divertida y educativa.
+- Tipografía: Nunito.
+- Títulos en negrita y textos regulares.
+- Tarjetas grandes y redondeadas.
+- Sombras suaves y espacios amplios.
+- Ilustraciones vectoriales planas de tecnología.
 
 Paleta de colores:
-
-Lavanda principal: #A995E8.
-
-Menta: #8CD8C1.
-
-Durazno: #FFB6A0.
-
-Amarillo: #FFE28A.
-
-Crema de fondo: #FFF9EF.
-
-Grafito para textos: #343044.
-
-Tipografía: Nunito.
-
-Bold para títulos.
-
-Regular para textos.
-
-Estilo visual:
-
-Tarjetas grandes.
-
-Bordes redondeados.
-
-Sombras suaves.
-
-Botones redondeados.
-
-Espacios amplios.
-
-Ilustraciones vectoriales planas de computadoras, teclados, componentes tecnológicos y elementos geométricos.
-
-Iconos Lucide cuando corresponda.
-
-Mantener consistencia visual en todas las vistas.
-
-Evitar fotografías de stock, exceso de elementos decorativos, colores sin relación con la paleta y animaciones excesivas.
-
-4. ARQUITECTURA Y NAVEGACIÓN
-
-La arquitectura objetivo es una Single Page Application (SPA), utilizando React, TypeScript, Tailwind CSS y React Router.
-
-Antes de modificar el proyecto, inspecciona las tecnologías y estructura que ya existen.
-
-No reemplaces el framework, las rutas ni las dependencias si la implementación actual ya funciona correctamente.
-
-Rutas principales:
-
-/ — Inicio.
-
-/descubre — Biblioteca de aprendizaje.
-
-/experimenta — Actividades educativas.
-
-/diviertete — Juegos.
-
-Mantener un encabezado consistente en todas las vistas, con el logotipo tipográfico TecnoKids y el menú:
-
-Inicio | Descubre | Experimenta | Diviértete.
-
-La barra de navegación debe conservar su diseño rosa pastel, texto blanco y estados hover o activo con colores apropiados de la paleta.
-
-Agregar navegación funcional, opción para regresar al inicio y diseño adaptable a celulares, tabletas y computadoras.
-
-5. VISTA INICIO
-
-Crear una página de bienvenida con:
-
-Hero principal con el texto: "¡El mundo digital está lleno de posibilidades!"
-
-Descripción breve de TECNOKIDS.
-
-Botón "Comenzar a explorar".
-
-Ilustración tecnológica principal.
-
-Cuatro tarjetas de acceso: Descubre, Experimenta, Diviértete y Crea.
-
-Sección de reto destacado.
-
-Pie de página con nombre y eslogan.
-
-El diseño debe ser visualmente atractivo, equilibrado y fácil de recorrer.
-
-Las tarjetas y secciones que ya estén implementadas y funcionen correctamente deben conservarse.
-
-6. VISTA DESCUBRE — BIBLIOTECA DE APRENDIZAJE
-
-Crear una biblioteca educativa con cuatro módulos:
-
-Conoce tu computadora.
-
-Hardware y software.
-
-Internet seguro.
-
-Mundo digital.
-
-Cada módulo tendrá tarjetas interactivas con:
-
-Ilustración.
-
-Título.
-
-Descripción breve.
-
-Botón "Descubrir".
-
-Explicación que se muestra al pulsar la tarjeta.
-
-Dato curioso o ejemplo práctico.
-
-Incluir selector de edad entre Pequeños y Grandes.
-
-Adaptar las explicaciones, ejemplos y preguntas al grupo seleccionado.
-
-El contenido debe ser educativo, correcto y apropiado para la edad.
-
-7. VISTA EXPERIMENTA — ACTIVIDADES EDUCATIVAS
-
-Implementar tres actividades funcionales:
-
-1. ARMA TU COMPUTADORA
-
-Actividad de identificación de componentes tecnológicos.
-
-El usuario debe seleccionar los componentes correctos a partir de ilustraciones y pistas.
-
-2. HARDWARE O SOFTWARE
-
-Mostrar tarjetas con elementos tecnológicos.
-
-El participante debe clasificarlos en la categoría correcta.
-
-3. DETECTIVES DIGITALES
-
-Presentar situaciones relacionadas con la seguridad en Internet.
-
-El participante debe identificar cuáles representan buenas prácticas digitales.
-
-Cada actividad debe incluir:
-
-Instrucciones claras.
-
-Interacción funcional.
-
-Retroalimentación inmediata.
-
-Explicación de la respuesta correcta.
-
-Opción de volver a intentarlo.
-
-Adaptación al aula:
-
-La docente controla las actividades desde su computadora y los alumnos participan oralmente o levantando la mano.
-
-No es necesario que cada alumno interactúe directamente con la pantalla.
-
-Las actividades deben permitir que la docente seleccione o revele respuestas cuando sea necesario, especialmente cuando se proyecten frente al grupo.
-
-8. VISTA DIVIÉRTETE — JUEGOS EDUCATIVOS
-
-Implementar juegos funcionales con contenido adaptado a Pequeños y Grandes.
-
-JUEGO 1: MEMORIA TECNOLÓGICA
-
-Tablero de tarjetas volteables.
-
-Parejas de elementos tecnológicos.
-
-Ilustraciones y nombres.
-
-Detección de parejas correctas.
-
-Mensaje de felicitación al completar el juego.
-
-Botón para reiniciar.
-
-La docente debe controlar la actividad desde la pantalla. Debe poder seleccionar las tarjetas, revelar su contenido y dirigir la búsqueda de parejas con los alumnos.
-
-JUEGO 2: ADIVINA QUÉ SOY
-
-Mostrar pistas sobre elementos tecnológicos.
-
-Presentar tres posibles respuestas.
-
-Permitir que la docente seleccione la respuesta elegida por el grupo.
-
-Mostrar retroalimentación inmediata.
-
-Revelar la explicación de la respuesta correcta.
-
-Botón para jugar nuevamente.
-
-Otros juegos que podrán incorporarse progresivamente:
-
-Bingo de computación.
-
-Cuestionarios interactivos.
-
-Ruleta de preguntas.
-
-Relacionar conceptos.
-
-Encuentra el error.
-
-Rompecabezas tecnológicos.
-
-No es necesario implementar todos estos juegos de inmediato. Deben desarrollarse progresivamente y reutilizando componentes cuando sea posible.
-
-9. EXPERIENCIA DE PROYECCIÓN EN CLASE
-
-Esta es una condición fundamental de TECNOKIDS.
-
-La docente es quien controla la plataforma.
-
-Los alumnos participan desde sus asientos mediante respuestas orales, levantando la mano o participando por turnos cuando la docente lo indique.
-
-Los juegos deben ofrecer:
-
-Preguntas y textos grandes.
-
-Imágenes visibles a distancia.
-
-Botones de control claros.
-
-Opción de mostrar u ocultar respuestas.
-
-Avance y retroceso cuando corresponda.
-
-Reinicio de actividades.
-
-Pantalla completa cuando sea conveniente.
-
-Evitar controles pequeños o interfaces que requieran interacción constante de cada alumno.
-
+- Lavanda: #A995E8.
+- Menta: #8CD8C1.
+- Durazno: #FFB6A0.
+- Amarillo: #FFE28A.
+- Crema: #FFF9EF.
+- Grafito: #343044.
+
+La plataforma debe sentirse como un espacio para descubrir y experimentar con la tecnología, evitando una apariencia excesivamente infantil.
+
+Arquitectura
+
+La aplicación tendrá cuatro rutas principales:
+
+- / — Inicio.
+- /descubre — Biblioteca de aprendizaje.
+- /experimenta — Actividades educativas.
+- /diviertete — Juegos.
+
+La navegación debe ser sencilla y consistente en todas las vistas.
+
+4. RESTRICCIONES
+
+Diseño y experiencia de usuario
+- Mantener la identidad visual y la paleta establecidas.
+- No utilizar mascotas ni personajes como identidad de marca.
+- Evitar fotografías de stock, decoraciones excesivas y animaciones innecesarias.
+- Utilizar textos grandes, botones visibles e instrucciones claras.
+- Priorizar la experiencia de proyección en el aula.
+- Mantener consistencia visual entre todas las secciones.
+
+Funcionalidad
+- Todos los botones y enlaces deben funcionar.
+- Las actividades deben incluir instrucciones, interacción, retroalimentación y opción de volver a intentarlo.
+- La docente debe poder controlar las actividades desde su computadora.
+- El selector de edad debe actualizar el contenido correspondiente.
+- El progreso debe guardarse localmente.
+- Los sonidos deben estar desactivados inicialmente.
+- No reproducir audio automáticamente.
+
+Restricciones técnicas
+- Utilizar React, TypeScript y Tailwind CSS.
+- Utilizar React Router para la navegación.
+- Utilizar componentes reutilizables.
+- Separar los datos educativos de la lógica de presentación.
+- Utilizar LocalStorage para guardar preferencias y progreso.
+- Utilizar iconos Lucide cuando corresponda.
+- No instalar dependencias innecesarias.
+
+Funcionalidades fuera del alcance
 No implementar:
+- Autenticación ni inicio de sesión.
+- Cuentas o perfiles de alumnos.
+- Bases de datos.
+- Pagos.
+- Sincronización entre dispositivos.
+- Participación mediante celulares.
+- Seguimiento individual de alumnos.
+- Puntuaciones, rankings o medallas.
 
-Cuentas de alumnos.
+Reglas para futuras modificaciones
 
-Registros individuales.
+Estas instrucciones son obligatorias durante todo el desarrollo:
 
-Inicio de sesión.
+1. Antes de modificar, inspecciona la estructura actual del proyecto.
+2. Reutiliza los componentes y estilos existentes.
+3. Modifica únicamente la sección o elemento solicitado.
+4. No reconstruyas la aplicación desde cero.
+5. No rediseñes páginas completas cuando se solicite un cambio puntual.
+6. No modifiques otras secciones que no estén relacionadas con la solicitud.
+7. No elimines funcionalidades que ya funcionan.
+8. No agregues funcionalidades por iniciativa propia.
+9. Evita duplicar código y consumir créditos innecesariamente.
+10. Si un cambio puede afectar otras partes de la aplicación, advierte antes de realizarlo.
 
-Participación mediante celulares.
+Al finalizar cada modificación, proporciona un resumen breve indicando:
+- Cambios realizados.
+- Archivos modificados.
+- Funcionalidades afectadas.
+- Pruebas pendientes, si existen.
 
-Respuestas enviadas desde otros dispositivos.
+**OBJETIVO FINAL:** Construir una plataforma educativa digital completa, atractiva y funcional que permita a una docente enseñar computación mediante contenido educativo, actividades y juegos interactivos para niños de 6 a 12 años.
 
-Puntuaciones individuales o por equipos.
+Promt para correcciones:
+Tu responsabilidad es organizar correctamente el contenido educativo de TECNOKIDS, respetando la estructura curricular establecida para cada edad y manteniendo la funcionalidad existente.
 
-Rankings.
+Tu tarea es corregir la organización del contenido educativo de TECNOKIDS para que los temas, actividades, preguntas, respuestas y explicaciones correspondan al temario específico de cada edad.
 
-Medallas o recompensas basadas en puntuación.
+Organización curricular
 
-10. FUNCIONALIDADES GENERALES
+**PEQUEÑOS (6 a 8 años)**
 
-1. SELECTOR DE EDAD
+- **6 años — Windows:** partes de la computadora, escritorio, ventanas, iconos, mouse, teclado y funciones de los componentes.
+- **7 años — Microsoft Word:** escritura, fuentes, tamaños, colores, alineación, imágenes y herramientas básicas.
+- **8 años — Microsoft PowerPoint:** diapositivas, diseños, imágenes, formas, transiciones y animaciones.
 
-Permitir cambiar entre Pequeños (6-8) y Grandes (9-12).
+**GRANDES (9 a 12 años)**
 
-Mantener la preferencia durante la navegación y guardarla en LocalStorage.
+- **9 y 10 años — Microsoft Excel:** filas, columnas, celdas, datos, tablas, operaciones, gráficas y fórmulas.
+- **11 y 12 años — Integración de contenidos:** Windows, Word, PowerPoint y Excel con mayor profundidad, dificultad, retos prácticos y conceptos avanzados.
 
-2. INDICADOR DE PROGRESO
+La organización curricular debe respetar los conocimientos correspondientes a cada edad. No basta con dividir el contenido en dos niveles de dificultad: cada grupo debe tener su propio temario.
 
-Mostrar las actividades que la docente ha completado o marcado como realizadas y un porcentaje de avance general del contenido.
+El selector debe conservar las dos opciones principales:
 
-Actualizar automáticamente cuando se complete una actividad.
+- **Pequeños:** mostrar Windows, Word y PowerPoint, organizados según las edades de 6, 7 y 8 años.
+- **Grandes:** mostrar Excel para 9 y 10 años, e integración de contenidos para 11 y 12 años.
 
-Guardar el progreso localmente en LocalStorage y permitir reiniciarlo.
+Cuando corresponda, debe existir un selector de edad dentro de cada grupo para identificar el temario específico.
 
-Este indicador representa el uso de la plataforma en el dispositivo de la docente. No debe presentarse como seguimiento individual de los alumnos.
+Todas las actividades deben adaptarse al tema y edad seleccionados, incluyendo preguntas, respuestas, explicaciones, imágenes y pistas.
 
-3. SONIDOS
+## 4. RESTRICCIONES
 
-Incluir efectos de sonido originales para aciertos, errores y finalización de juegos.
+- Conservar la identidad visual, navegación y secciones actuales de TECNOKIDS.
+- No sustituir los temas establecidos por contenidos genéricos de tecnología.
+- No eliminar las actividades existentes; reorganizarlas y adaptarlas al nuevo temario.
+- Mantener el funcionamiento para que la docente pueda dirigir las actividades desde una computadora y proyectarlas al grupo.
+- No implementar puntuaciones, cuentas de alumnos ni bases de datos.
+- No modificar funcionalidades que no estén relacionadas con esta corrección.
+- No reconstruir la aplicación ni duplicar componentes o funcionalidades existentes.
 
-Agregar un botón visible para activar o desactivar sonidos.
+Antes de implementar, inspecciona la estructura actual del proyecto, identifica los componentes relacionados con el contenido educativo y realiza únicamente los cambios necesarios.
 
-Los sonidos deben estar desactivados inicialmente.
+------------------------------------------------------------------------------------------------
 
-No reproducir audio automáticamente.
-
-4. ANIMACIONES
-
-Incluir transiciones suaves, efectos hover, animaciones discretas en tarjetas y pequeñas animaciones al completar actividades.
-
-Evitar animaciones excesivas.
-
-5. RESPONSIVE
-
-Garantizar una experiencia adecuada en escritorio, tabletas y celulares.
-
-Priorizar la experiencia de proyección en computadoras y pantallas grandes.
-
-En móviles, utilizar menú compacto y tarjetas en una sola columna cuando corresponda.
-
-11. REQUISITOS TÉCNICOS
-
-Utilizar componentes reutilizables.
-
-Separar los datos educativos de la lógica de presentación.
-
-Mantener el código organizado.
-
-Usar iconos Lucide.
-
-Utilizar LocalStorage para preferencias y progreso.
-
-No implementar autenticación.
-
-No implementar cuentas ni perfiles infantiles.
-
-No implementar base de datos.
-
-No implementar pagos.
-
-No solicitar información personal de los niños.
-
-No incluir funcionalidades decorativas que no funcionen.
-
-Todos los botones y enlaces deben realizar la acción indicada.
-
-Evitar errores en consola y navegación rota.
-
-Los juegos del mismo tipo deben utilizar estructuras reutilizables. Por ejemplo, diferentes memoramas deben compartir el mismo motor y recibir distintos conjuntos de tarjetas.
-
-12. FUNCIONALIDADES FUERA DEL ALCANCE ACTUAL
-
-No implementar por ahora:
-
-Sistema de usuarios.
-
-Perfiles infantiles.
-
-Registro e inicio de sesión.
-
-Base de datos.
-
-Sincronización entre dispositivos.
-
-Panel administrativo complejo.
-
-Seguimiento individual de alumnos.
-
-Puntuaciones, rankings y medallas.
-
-Se podrán considerar en futuras etapas únicamente si la docente lo solicita.
-
-13. EXPERIENCIA DE USUARIO
-
-La interfaz debe ser intuitiva para niños que utilizan computadoras o tabletas.
-
-Utilizar instrucciones claras, botones visibles y retroalimentación positiva.
-
-Los mensajes deben motivar sin penalizar excesivamente los errores.
-
-Garantizar contraste adecuado y tamaños de texto legibles.
-
-La docente debe poder comprender rápidamente cómo iniciar, controlar y finalizar cada actividad.
-
-14. CRITERIOS DE ACEPTACIÓN
-
-El proyecto deberá cumplir progresivamente con los siguientes criterios:
-
-Las cuatro rutas funcionan correctamente.
-
-Todas las secciones tienen contenido real.
-
-El selector de edad modifica el contenido.
-
-Las tarjetas educativas son interactivas.
-
-Las tres actividades pueden completarse.
-
-Los dos juegos funcionan de principio a fin.
-
-La docente puede controlar las actividades proyectadas.
-
-El progreso de contenido se actualiza y persiste localmente.
-
-El control de sonido funciona.
-
-La interfaz se adapta a diferentes tamaños de pantalla.
-
-No existen botones sin funcionalidad.
-
-No se requiere registro ni información personal de los niños.
-
-15. REGLAS DE TRABAJO PARA LOVABLE — MUY IMPORTANTES
-
-Este proyecto se desarrollará progresivamente y se debe optimizar el consumo de créditos.
-
-Antes de realizar cualquier modificación:
-
-Revisa la estructura actual del proyecto.
-
-Identifica qué funcionalidades ya existen.
-
-Reutiliza componentes y estilos.
-
-Modifica únicamente lo necesario.
-
-Reglas obligatorias:
-
-No reconstruyas la aplicación desde cero si ya existe una implementación.
-
-No rediseñes toda la página por una solicitud puntual.
-
-No modifiques secciones que no hayan sido mencionadas.
-
-No alteres componentes compartidos si no es indispensable.
-
-No elimines funcionalidades que ya funcionan.
-
-No dupliques componentes ni lógica.
-
-No instales dependencias innecesarias.
-
-No agregues funcionalidades por iniciativa propia.
-
-No repitas análisis generales en cada tarea.
-
-Si una modificación puede afectar otras partes, advierte antes de ejecutarla.
-
-Cuando solicite una modificación específica, interpreta este documento como referencia general y trabaja únicamente en el alcance indicado.
-
-Al terminar cada tarea, proporciona un resumen breve con:
-
-Cambios realizados.
-
-Archivos modificados.
-
-Funcionalidades afectadas.
-
-Pruebas pendientes, si existen.
-
-No afirmes que una funcionalidad está terminada si no ha sido implementada y comprobada.
-
-OBJETIVO FINAL
-
-Construir una plataforma educativa digital completa, visualmente atractiva y funcional, que permita aprender conceptos tecnológicos mediante tarjetas, actividades y juegos, adaptados a niños de 6 a 12 años y que pueda ser utilizada por una docente para dirigir actividades y proyectarlas en el aula.
-Construye la primera versión funcional de TECNOKIDS siguiendo esta especificación.
-
-Prioriza una implementación coherente, reutilizable y eficiente en créditos.
-
-Desarrolla las cuatro vistas principales y sus funcionalidades descritas. No agregues características fuera del alcance establecido.
-
-No implementes autenticación, base de datos ni sistemas de usuarios.
-
-Antes de finalizar, comprueba la navegación, las interacciones principales y la adaptación responsive.
-
-No sacrifiques la funcionalidad por crear elementos visuales decorativos.
 
 This project was built with [Lovable](https://lovable.dev).
 
