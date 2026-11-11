@@ -8,7 +8,8 @@ import type { Leveled } from "@/lib/app-state";
 
 export type Option = { label: string; icon?: LucideIcon };
 export type Question = { prompt: string; icon?: LucideIcon; options: Option[]; answer: number; explain: string };
-export type Pair = { id: string; label: string; icon: LucideIcon };
+export type Pair = { id: string; label: string; icon: LucideIcon; image?: string };
+const img = (f: string) => `/images/memorama/${f}`;
 
 const o = (label: string, icon?: LucideIcon): Option => (icon ? { label, icon } : { label });
 
@@ -162,8 +163,11 @@ export const ADIVINA: Leveled<Question[]> = {
 
 export const MEMORIA: Leveled<Pair[]> = {
   "6": [
-    { id: "monitor", label: "Monitor", icon: Monitor }, { id: "teclado", label: "Teclado", icon: Keyboard },
-    { id: "mouse", label: "Mouse", icon: Mouse }, { id: "cpu", label: "CPU", icon: Cpu },
+    { id: "monitor", label: "Monitor", icon: Monitor, image: img("monitor.png") }, { id: "teclado", label: "Teclado", icon: Keyboard, image: img("teclado.png") },
+    { id: "mouse", label: "Mouse", icon: Mouse, image: img("mouse.png") }, { id: "cpu", label: "CPU / gabinete", icon: Cpu, image: img("cpu.png") },
+    { id: "impresora", label: "Impresora", icon: Monitor, image: img("impresora.png") }, { id: "bocina", label: "Bocina", icon: Monitor, image: img("bocinas.png") },
+    { id: "usb", label: "Memoria USB", icon: Monitor, image: img("usb.png") }, { id: "webcam", label: "Webcam", icon: Monitor, image: img("webcam.png") },
+    { id: "audifonos", label: "Audífonos", icon: Monitor, image: img("audifonos.png") },
     { id: "carpeta", label: "Carpeta", icon: FolderOpen }, { id: "papelera", label: "Papelera", icon: Trash2 },
   ],
   "7": [
@@ -188,3 +192,6 @@ export const MEMORIA: Leveled<Pair[]> = {
     { id: "filtro", label: "Filtro", icon: Filter }, { id: "tabla", label: "Tabla", icon: Table },
   ],
 };
+
+/** Memorama de 6 años: personajes (agregar aquí las imágenes cuando se suban). */
+export const PERSONAJES: Pair[] = [];
