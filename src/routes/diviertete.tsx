@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Grid3x3, HelpCircle } from "lucide-react";
-import { ADIVINA, MEMORIA } from "@/data/juegos";
+import { ADIVINA, MEMORIA, PERSONAJES } from "@/data/juegos";
 import { useApp } from "@/lib/app-state";
 import { CurriculumPicker, PageHeader } from "@/components/Layout";
 import { Picker } from "@/components/GameStage";
@@ -40,7 +40,12 @@ function Diviertete() {
           onChange={setGame}
         />
         {game === "memoria" ? (
-          <MemoryGame key={level} title="Memoria tecnológica" pairs={MEMORIA[level]} activityId="game-memoria" />
+          <MemoryGame key={level} title="Memoria tecnológica" pairs={MEMORIA[level]} activityId="game-memoria"
+            categories={level === "6" ? [
+              { id: "computadora", label: "Computadora", pairs: MEMORIA["6"] },
+              { id: "personajes", label: "Personajes", pairs: PERSONAJES },
+              { id: "todas", label: "Todas las tarjetas", pairs: [...MEMORIA["6"], ...PERSONAJES] },
+            ] : undefined} />
         ) : (
           <QuizEngine key={level} title="Adivina qué soy" activityId="game-adivina" questions={ADIVINA[level]}
             instructions="Lean las pistas. El grupo elige una respuesta y la docente la selecciona." />
