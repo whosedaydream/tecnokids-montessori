@@ -19,7 +19,7 @@ function shuffle(pairs: Pair[]): Card[] {
 export type MemoryCategory = { id: string; label: string; pairs: Pair[] };
 
 export function MemoryGame({ title, pairs: basePairs, activityId, categories }: {
-  title: string; pairs: Pair[]; activityId: string; categories?: MemoryCategory[];
+  title: string; pairs: Pair[]; activityId: string; categories?: MemoryCategory[] | undefined;
 }) {
   const { play, markDone } = useApp();
   const [catId, setCatId] = useState(categories?.[0]?.id);
