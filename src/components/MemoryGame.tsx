@@ -95,13 +95,19 @@ export function MemoryGame({ title, pairs: basePairs, activityId, categories, sp
                 <button
                   key={c.key}
                   onClick={() => flip(c)}
-                  aria-label={shown ? c.label : `Tarjeta ${i + 1}`}
+                  aria-label={shown ? c.label : sparkleBack ? "Tarjeta boca abajo" : `Tarjeta ${i + 1}`}
                   className={`aspect-square perspective-[1000px] transition-transform ${shown ? "" : "hover:-translate-y-1"}`}
                 >
                   <span className={`relative block h-full w-full transition-transform duration-500 transform-3d ${shown ? "rotate-y-180" : ""}`}>
                     <span className="absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-3xl bg-lavender backface-hidden">
-                      <Cpu className="h-8 w-8 text-primary-foreground opacity-70" />
-                      <span className="text-2xl font-black text-primary-foreground">{i + 1}</span>
+                      {sparkleBack ? (
+                        <span aria-hidden="true" className="memory-sparkle text-6xl md:text-7xl">✨</span>
+                      ) : (
+                        <>
+                          <Cpu className="h-8 w-8 text-primary-foreground opacity-70" />
+                          <span className="text-2xl font-black text-primary-foreground">{i + 1}</span>
+                        </>
+                      )}
                     </span>
                     <span className={`absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-1 rounded-3xl border-4 p-2 backface-hidden ${done ? "border-success bg-success-soft" : "border-primary bg-card"}`}>
                       {c.image ? (

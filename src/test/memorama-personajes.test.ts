@@ -9,12 +9,12 @@ import { MEMORIA, PERSONAJES } from "@/data/juegos";
 describe("Memorama de 6 años", () => {
   it("usa exactamente los seis nombres de personajes indicados", () => {
     expect(PERSONAJES.map((p) => p.label)).toEqual([
-      "Cantante",
-      "Estrella",
+      "Superman",
+      "Rumi",
+      "Mira",
+      "Chase",
       "Bluey",
       "Bingo",
-      "Chase",
-      "Superman",
     ]);
   });
 
