@@ -102,11 +102,11 @@ export function MemoryGame({ title, pairs: basePairs, activityId, categories, sp
                     <span className={`absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-3xl backface-hidden ${sparkleBack ? "memory-card-back" : "bg-lavender"}`}>
                       {sparkleBack ? (
                         <>
-                          <span aria-hidden="true" className="absolute left-3 top-2 text-sm font-extrabold text-foreground">{i + 1}</span>
                           <svg aria-hidden="true" viewBox="0 0 100 100" fill="currentColor"
                             className="memory-sparkle h-8 w-8">
                             <path d="M50 0 62 38 100 50 62 62 50 100 38 62 0 50 38 38Z" />
                           </svg>
+                          <span aria-hidden="true" className="memory-card-number text-lg font-bold">{i + 1}</span>
                         </>
                       ) : (
                         <>
