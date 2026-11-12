@@ -198,10 +198,10 @@ export const MEMORIA: Leveled<Pair[]> = {
 
 /** Memorama de 6 años: personajes. */
 export const PERSONAJES: Pair[] = [
-  { id: "cantante", label: "Cantante", icon: Mic, image: img("personaje-1.png") },
-  { id: "estrella", label: "Estrella", icon: Star, image: img("personaje-2.png") },
+  { id: "superman", label: "Superman", icon: Badge, image: img("personaje-6.png") },
+  { id: "rumi", label: "Rumi", icon: Star, image: img("personaje-2.png") },
+  { id: "mira", label: "Mira", icon: Mic, image: img("personaje-1.png") },
+  { id: "chase", label: "Chase", icon: Shield, image: img("personaje-5.png") },
   { id: "bluey", label: "Bluey", icon: Dog, image: img("personaje-3.png") },
   { id: "bingo", label: "Bingo", icon: Dog, image: img("personaje-4.png") },
-  { id: "chase", label: "Chase", icon: Shield, image: img("personaje-5.png") },
-  { id: "superman", label: "Superman", icon: Badge, image: img("personaje-6.png") },
 ];
