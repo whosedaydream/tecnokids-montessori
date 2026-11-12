@@ -125,8 +125,7 @@
 @utility pop-in { animation: pop-in 0.35s ease-out; }
 @utility memory-sparkle {
   display: inline-block;
-  color: var(--color-primary);
-  filter: hue-rotate(215deg) saturate(0.85) drop-shadow(0 0 0.4rem var(--color-lavender-soft));
+  filter: drop-shadow(0 0 0.35rem var(--color-lavender-soft));
   animation: memory-sparkle 2.4s ease-in-out infinite;
 }
 
