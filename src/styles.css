@@ -123,9 +123,13 @@
   &:hover { background-color: var(--color-lavender-soft); }
 }
 @utility pop-in { animation: pop-in 0.35s ease-out; }
+@utility memory-card-back {
+  background-color: #EEE8FF;
+}
 @utility memory-sparkle {
   display: inline-block;
-  filter: drop-shadow(0 0 0.35rem var(--color-lavender-soft));
+  color: #896BD1;
+  filter: drop-shadow(0 0 0.25rem var(--color-lavender-soft));
   animation: memory-sparkle 2.4s ease-in-out infinite;
 }
 
@@ -136,5 +140,5 @@
 
 @keyframes memory-sparkle {
   0%, 100% { transform: scale(1); opacity: 0.78; }
-  50% { transform: scale(1.12); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 1; }
 }
