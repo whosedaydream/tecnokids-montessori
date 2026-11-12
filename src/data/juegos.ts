@@ -2,7 +2,7 @@ import {
   Monitor, Keyboard, Mouse, Cpu, Speaker, Printer, AppWindow, FolderOpen, Trash2, X, Minus, Square,
   Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, Type, Palette, Image, Save, Undo2, Plus,
   Presentation, Shapes, Play, LayoutTemplate, Film, Sparkles, Grid3x3, Rows3, Columns3, Equal, Sigma,
-  BarChart3, PieChart, ArrowUpDown, Table, Filter, Copy, type LucideIcon,
+  BarChart3, PieChart, ArrowUpDown, Table, Filter, Copy, Mic, Star, Dog, Shield, Badge, type LucideIcon,
 } from "lucide-react";
 import type { Leveled } from "@/lib/app-state";
 
@@ -193,5 +193,12 @@ export const MEMORIA: Leveled<Pair[]> = {
   ],
 };
 
-/** Memorama de 6 años: personajes (agregar aquí las imágenes cuando se suban). */
-export const PERSONAJES: Pair[] = [];
+/** Memorama de 6 años: personajes. */
+export const PERSONAJES: Pair[] = [
+  { id: "cantante", label: "Cantante", icon: Mic, image: img("personaje-1.png") },
+  { id: "estrella", label: "Estrella", icon: Star, image: img("personaje-2.png") },
+  { id: "bluey", label: "Bluey", icon: Dog, image: img("personaje-3.png") },
+  { id: "bingo", label: "Bingo", icon: Dog, image: img("personaje-4.png") },
+  { id: "chase", label: "Chase", icon: Shield, image: img("personaje-5.png") },
+  { id: "superman", label: "Superman", icon: Badge, image: img("personaje-6.png") },
+];
