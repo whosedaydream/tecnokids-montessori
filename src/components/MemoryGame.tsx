@@ -99,12 +99,15 @@ export function MemoryGame({ title, pairs: basePairs, activityId, categories, sp
                   className={`aspect-square perspective-[1000px] transition-transform ${shown ? "" : "hover:-translate-y-1"}`}
                 >
                   <span className={`relative block h-full w-full transition-transform duration-500 transform-3d ${shown ? "rotate-y-180" : ""}`}>
-                    <span className={`absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-3xl backface-hidden ${sparkleBack ? "bg-background" : "bg-lavender"}`}>
+                    <span className={`absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-3xl backface-hidden ${sparkleBack ? "memory-card-back" : "bg-lavender"}`}>
                       {sparkleBack ? (
-                        <svg aria-hidden="true" viewBox="0 0 100 100" fill="currentColor"
-                          className="memory-sparkle h-16 w-16 text-lavender md:h-20 md:w-20">
-                          <path d="M50 0 62 38 100 50 62 62 50 100 38 62 0 50 38 38Z" />
-                        </svg>
+                        <>
+                          <span aria-hidden="true" className="absolute left-3 top-2 text-sm font-extrabold text-foreground">{i + 1}</span>
+                          <svg aria-hidden="true" viewBox="0 0 100 100" fill="currentColor"
+                            className="memory-sparkle h-8 w-8">
+                            <path d="M50 0 62 38 100 50 62 62 50 100 38 62 0 50 38 38Z" />
+                          </svg>
+                        </>
                       ) : (
                         <>
                           <Cpu className="h-8 w-8 text-primary-foreground opacity-70" />
