@@ -126,6 +126,10 @@
 @utility memory-card-back {
   background-color: #EEE8FF;
 }
+@utility memory-card-number {
+  color: #FFFFFF;
+  text-shadow: 0 0 4px rgb(255 255 255 / 0.7);
+}
 @utility memory-sparkle {
   display: inline-block;
   color: #896BD1;

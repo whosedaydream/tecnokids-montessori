@@ -42,7 +42,7 @@ function Diviertete() {
         {game === "memoria" ? (
           <MemoryGame key={level} title="Memoria tecnológica" activityId="game-memoria"
             pairs={level === "6" ? [...MEMORIA["6"], ...PERSONAJES] : MEMORIA[level]}
-            sparkleBack={level === "6"} />
+            sparkleBack />
         ) : (
           <QuizEngine key={level} title="Adivina qué soy" activityId="game-adivina" questions={ADIVINA[level]}
             instructions="Lean las pistas. El grupo elige una respuesta y la docente la selecciona." />
