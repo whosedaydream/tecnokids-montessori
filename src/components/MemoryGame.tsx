@@ -18,8 +18,8 @@ function shuffle(pairs: Pair[]): Card[] {
 /** Motor de memorama reutilizable: recibe cualquier conjunto de parejas. */
 export type MemoryCategory = { id: string; label: string; pairs: Pair[] };
 
-export function MemoryGame({ title, pairs: basePairs, activityId, categories }: {
-  title: string; pairs: Pair[]; activityId: string; categories?: MemoryCategory[] | undefined;
+export function MemoryGame({ title, pairs: basePairs, activityId, categories, sparkleBack = false }: {
+  title: string; pairs: Pair[]; activityId: string; categories?: MemoryCategory[] | undefined; sparkleBack?: boolean;
 }) {
   const { play, markDone } = useApp();
   const [catId, setCatId] = useState(categories?.[0]?.id);

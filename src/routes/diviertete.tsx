@@ -40,12 +40,9 @@ function Diviertete() {
           onChange={setGame}
         />
         {game === "memoria" ? (
-          <MemoryGame key={level} title="Memoria tecnológica" pairs={MEMORIA[level]} activityId="game-memoria"
-            categories={level === "6" ? [
-              { id: "computadora", label: "Computadora", pairs: MEMORIA["6"] },
-              { id: "personajes", label: "Personajes", pairs: PERSONAJES },
-              { id: "todas", label: "Todas las tarjetas", pairs: [...MEMORIA["6"], ...PERSONAJES] },
-            ] : undefined} />
+          <MemoryGame key={level} title="Memoria tecnológica" activityId="game-memoria"
+            pairs={level === "6" ? [...MEMORIA["6"], ...PERSONAJES] : MEMORIA[level]}
+            sparkleBack={level === "6"} />
         ) : (
           <QuizEngine key={level} title="Adivina qué soy" activityId="game-adivina" questions={ADIVINA[level]}
             instructions="Lean las pistas. El grupo elige una respuesta y la docente la selecciona." />

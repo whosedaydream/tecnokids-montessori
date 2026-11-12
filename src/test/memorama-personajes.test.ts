@@ -5,10 +5,9 @@ import { describe, expect, it } from "vitest";
 
 import { MEMORIA, PERSONAJES } from "@/data/juegos";
 
-// The 6-year-old memorama is the one Diana fills with her own pictures: the
-// characters must stay wired to the files she uploaded into public/images/memorama.
-describe("Memorama de 6 años: personajes", () => {
-  it("has the six uploaded characters with their labels", () => {
+// El memorama de 6 años usa exclusivamente las imágenes que Diana subió.
+describe("Memorama de 6 años", () => {
+  it("usa exactamente los seis nombres de personajes indicados", () => {
     expect(PERSONAJES.map((p) => p.label)).toEqual([
       "Cantante",
       "Estrella",
@@ -19,7 +18,7 @@ describe("Memorama de 6 años: personajes", () => {
     ]);
   });
 
-  it("points every character card at an image that exists on disk", () => {
+  it("conserva una imagen original existente para cada personaje", () => {
     expect(PERSONAJES.every((p) => p.image)).toBe(true);
     for (const p of PERSONAJES) {
       const file = resolve("public", p.image!.replace(/^\//, ""));
@@ -27,12 +26,23 @@ describe("Memorama de 6 años: personajes", () => {
     }
   });
 
-  it("keeps the computer cards and offers all three categories", () => {
+  it("mezcla nueve elementos de computadora y seis personajes sin repetir identificadores", () => {
     const computadora = MEMORIA["6"];
-    expect(computadora).toHaveLength(11);
-    expect(computadora.filter((p) => p.image)).toHaveLength(9);
-    // "Todas las tarjetas" joins both sets, so ids must never collide.
+    expect(computadora.map((p) => p.label)).toEqual([
+      "Teclado",
+      "Mouse",
+      "Monitor",
+      "CPU/Gabinete",
+      "Impresora",
+      "Bocina",
+      "Memoria USB",
+      "Webcam",
+      "Audífonos",
+    ]);
+    expect(computadora.every((p) => p.image)).toBe(true);
+    expect(computadora.some((p) => p.label === "Carpeta" || p.label === "Papelera")).toBe(false);
+
     const ids = new Set([...computadora, ...PERSONAJES].map((p) => p.id));
-    expect(ids.size).toBe(computadora.length + PERSONAJES.length);
+    expect(ids.size).toBe(15);
   });
 });

@@ -163,12 +163,15 @@ export const ADIVINA: Leveled<Question[]> = {
 
 export const MEMORIA: Leveled<Pair[]> = {
   "6": [
-    { id: "monitor", label: "Monitor", icon: Monitor, image: img("monitor.png") }, { id: "teclado", label: "Teclado", icon: Keyboard, image: img("teclado.png") },
-    { id: "mouse", label: "Mouse", icon: Mouse, image: img("mouse.png") }, { id: "cpu", label: "CPU / gabinete", icon: Cpu, image: img("cpu.png") },
-    { id: "impresora", label: "Impresora", icon: Monitor, image: img("impresora.png") }, { id: "bocina", label: "Bocina", icon: Monitor, image: img("bocinas.png") },
-    { id: "usb", label: "Memoria USB", icon: Monitor, image: img("usb.png") }, { id: "webcam", label: "Webcam", icon: Monitor, image: img("webcam.png") },
+    { id: "teclado", label: "Teclado", icon: Keyboard, image: img("teclado.png") },
+    { id: "mouse", label: "Mouse", icon: Mouse, image: img("mouse.png") },
+    { id: "monitor", label: "Monitor", icon: Monitor, image: img("monitor.png") },
+    { id: "cpu", label: "CPU/Gabinete", icon: Cpu, image: img("cpu.png") },
+    { id: "impresora", label: "Impresora", icon: Printer, image: img("impresora.png") },
+    { id: "bocina", label: "Bocina", icon: Speaker, image: img("bocinas.png") },
+    { id: "usb", label: "Memoria USB", icon: Monitor, image: img("usb.png") },
+    { id: "webcam", label: "Webcam", icon: Monitor, image: img("webcam.png") },
     { id: "audifonos", label: "Audífonos", icon: Monitor, image: img("audifonos.png") },
-    { id: "carpeta", label: "Carpeta", icon: FolderOpen }, { id: "papelera", label: "Papelera", icon: Trash2 },
   ],
   "7": [
     { id: "negrita", label: "Negrita", icon: Bold }, { id: "cursiva", label: "Cursiva", icon: Italic },
